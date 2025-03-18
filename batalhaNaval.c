@@ -31,6 +31,7 @@ int main() {
     }
 
     //loop aninhado com condições para exibir os barcos posicionados
+    printf("\n");
     printf("\nTABULEIRO DA BATALHA NAVAL COM BARCOS POSICIONADOS\n");
 
     printf("    ");
@@ -42,8 +43,14 @@ int main() {
     for(int i = 0; i <= 9; i++) { 
         i == 9 ? printf("\n%d  ", linhas[i]) : printf("\n0%d  ", linhas[i]);
         for(int j = 0; j <= 9; j++) {
-            // tabuleiro[i][j] = 0;            
-            // printf(" %d ", tabuleiro[i][j]);
+            if(i == 1 && (j >= 1 && j <= 3)) {
+                tabuleiro[i][j] = 3; //barco posicionado horizontalmente
+            } else if(j == 5 && (i >= 4 && i <= 6)) {
+                tabuleiro[i][j] = 3; //barco posicionado vertical
+            } else {
+                tabuleiro[i][j] = 0;
+            }
+            printf(" %d ", tabuleiro[i][j]);
         }
     }
 
