@@ -36,12 +36,14 @@ int main() {
 
     printf("    ");
 
+    //Loop para impressão das colunas do tabuleiro
     for (int h = 0; h <= 9; h++){
         printf(" %c ", colunas[h]);
     }
 
+    //loop aninhado para exibir as linhas, popular e exibir o tabuleiro
     for(int i = 0; i <= 9; i++) { 
-        i == 9 ? printf("\n%d  ", linhas[i]) : printf("\n0%d  ", linhas[i]);
+        i == 9 ? printf("\n%d  ", linhas[i]) : printf("\n0%d  ", linhas[i]); //condição ternária para alinhar exibição das linhas 
         for(int j = 0; j <= 9; j++) {
             if(i == 1 && (j >= 1 && j <= 3)) {
                 tabuleiro[i][j] = 3; //barco posicionado horizontalmente
@@ -60,10 +62,12 @@ int main() {
 
     printf("    ");
 
+    //Colunas
     for (int h = 0; h <= 9; h++){
         printf(" %c ", colunas[h]);
     }
 
+    //Linhas e posionamento de todos os barcos
     for(int i = 0; i <= 9; i++) { 
         i == 9 ? printf("\n%d  ", linhas[i]) : printf("\n0%d  ", linhas[i]);
         for(int j = 0; j <= 9; j++) {
@@ -85,25 +89,86 @@ int main() {
 
 
     // Nível Mestre - Habilidades Especiais com Matrizes
-    // Sugestão: Crie matrizes para representar habilidades especiais como cone, cruz, e octaedro.
-    // Sugestão: Utilize estruturas de repetição aninhadas para preencher as áreas afetadas por essas habilidades no tabuleiro.
-    // Sugestão: Exiba o tabuleiro com as áreas afetadas, utilizando 0 para áreas não afetadas e 1 para áreas atingidas.
-
-    // Exemplos de exibição das habilidades:
-    // Exemplo para habilidade em cone:
-    // 0 0 1 0 0
-    // 0 1 1 1 0
-    // 1 1 1 1 1
     
-    // Exemplo para habilidade em octaedro:
-    // 0 0 1 0 0
-    // 0 1 1 1 0
-    // 0 0 1 0 0
+    //Exibir cone no tabuleiro
+    printf("\n");
+    printf("\nCONE\n");
 
-    // Exemplo para habilidade em cruz:
-    // 0 0 1 0 0
-    // 1 1 1 1 1
-    // 0 0 1 0 0
+    printf("    ");
+
+    //Loop para impressão das colunas do tabuleiro
+    for (int h = 0; h <= 9; h++){
+        printf(" %c ", colunas[h]);
+    }
+    
+    //loop aninhado para exibir as linhas, popular e exibir o tabuleiro
+    for(int i = 0; i <= 9; i++) { 
+        i == 9 ? printf("\n%d  ", linhas[i]) : printf("\n0%d  ", linhas[i]);
+        for(int j = 0; j <= 9; j++) {
+            if ((i == 1 && j == 4) || 
+            (i == 2 && (j >= 3 && j <= 5)) || 
+            (i == 3 && (j >= 2 && j <= 6))) {
+                tabuleiro[i][j] = 1;         
+            } else {
+                tabuleiro[i][j] = 0;            
+            }
+            printf(" %d ", tabuleiro[i][j]);
+        }
+    }
+
+    //Exibir octaedro no tabuleiro
+    printf("\n");
+    printf("\nOCTAEDRO\n");
+
+    printf("    ");
+
+    //Loop para impressão das colunas do tabuleiro
+    for (int h = 0; h <= 9; h++){
+        printf(" %c ", colunas[h]);
+    }
+    
+    //loop aninhado para exibir as linhas, popular e exibir o tabuleiro
+    for(int i = 0; i <= 9; i++) { 
+        i == 9 ? printf("\n%d  ", linhas[i]) : printf("\n0%d  ", linhas[i]);
+        for(int j = 0; j <= 9; j++) {
+            if ((i == 1 && j == 4) || 
+            (i == 2 && (j >= 3 && j <= 5)) || 
+            (i == 3 && (j >= 2 && j <= 6)) || 
+            (i == 4 && (j >= 1 && j <= 7)) || 
+            (i == 5 && (j >= 2 && j <= 6)) || 
+            (i == 6 && (j >= 3 && j <= 5)) || 
+            (i == 7 && j == 4)) {
+                tabuleiro[i][j] = 1;         
+            } else {
+                tabuleiro[i][j] = 0;            
+            }
+            printf(" %d ", tabuleiro[i][j]);
+        }
+    }
+
+    //Exibir cruz no tabuleiro
+    printf("\n");
+    printf("\nCRUZ\n");
+
+    printf("    ");
+
+    //Loop para impressão das colunas do tabuleiro
+    for (int h = 0; h <= 9; h++){
+        printf(" %c ", colunas[h]);
+    }
+    
+    //loop aninhado para exibir as linhas, popular e exibir o tabuleiro
+    for(int i = 0; i <= 9; i++) { 
+        i == 9 ? printf("\n%d  ", linhas[i]) : printf("\n0%d  ", linhas[i]);
+        for(int j = 0; j <= 9; j++) {
+            if(j == 4 || i == 4) {
+                tabuleiro[i][j] = 1; 
+            } else {
+                tabuleiro[i][j] = 0;            
+            }
+            printf(" %d ", tabuleiro[i][j]);
+        }
+    }
 
     return 0;
 }
